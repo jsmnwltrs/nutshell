@@ -1,20 +1,14 @@
 import React from 'react';
 import { Button } from 'reactstrap';
-import PropTypes from 'prop-types';
-import authRequests from '../../Helpers/data/authRequests';
-import logo from '../../Styles/images/logo.png';
+import authRequests from '../../../Helpers/data/authRequests';
+import logo from '../../../Styles/images/logo.png';
 import './Auth.scss';
 
 class Auth extends React.Component {
-  static propTypes = {
-    isAuthenticated: PropTypes.func,
-  }
-
   authenticateUser = (e) => {
     e.preventDefault();
     authRequests.authenticate().then(() => {
-      // const user = result.additionalUserInfo.username;
-      this.props.isAuthenticated();
+      this.props.history.push('/home');
     }).catch(error => console.error('error with auth', error));
   }
 
