@@ -28,7 +28,6 @@ class Events extends React.Component {
         key={event.id}
       />
     ));
-    console.log(events);
     return (
       <div className='events col'>
         <h2>Events</h2>

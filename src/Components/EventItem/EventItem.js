@@ -1,18 +1,16 @@
 import React from 'react';
 import {
   Card,
-  CardImg,
   CardText,
   CardBody,
   CardTitle,
   CardSubtitle,
-  Button,
 } from 'reactstrap';
 import './EventItem.scss';
 import eventShape from '../../Helpers/props/eventShape';
 
 class EventItem extends React.Component {
-  static propType = {
+  static propTypes = {
     event: eventShape,
   }
 
