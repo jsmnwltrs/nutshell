@@ -52,8 +52,8 @@ class EventItem extends React.Component {
     };
 
     return (
-      <div className="event-item text-center">
-        <Card>
+      <div className="event-item text-center mb-3">
+        <Card className='item'>
           <CardBody>
             <CardTitle>{event.event}</CardTitle>
             <CardSubtitle>{event.startDate}</CardSubtitle>
