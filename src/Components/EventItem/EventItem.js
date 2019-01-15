@@ -16,6 +16,13 @@ class EventItem extends React.Component {
   static propTypes = {
     event: eventShape,
     deleteSingleEvent: PropTypes.func,
+    passEventToEdit: PropTypes.func,
+  }
+
+  editEvent = (e) => {
+    e.preventDefault();
+    const { event, passEventToEdit } = this.props;
+    passEventToEdit(event.id);
   }
 
   deleteEvent = (e) => {
@@ -32,6 +39,9 @@ class EventItem extends React.Component {
       if (event.uid === uid) {
         return (
           <div>
+            <span className="col">
+              <button className="btn btn-dark" onClick={this.editEvent}><i className="far fa-edit"/></button>
+            </span>
             <span className="col">
               <button className="btn btn-dark" onClick={this.deleteEvent}><i className="far fa-trash-alt"/></button>
             </span>
