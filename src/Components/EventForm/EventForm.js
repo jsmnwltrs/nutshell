@@ -72,8 +72,9 @@ class EventForm extends React.Component {
   render() {
     const { newEvent } = this.state;
     return (
-      <Form onSubmit={this.formSubmit}>
-        <FormGroup>
+      <Form className='form col-6 mt-3 mr-4' onSubmit={this.formSubmit}>
+      <h1 className='mb-5'>Events</h1>
+        <FormGroup className=''>
           <Label for="exampleName">Event Name:</Label>
           <Input
             type="name"
@@ -84,7 +85,7 @@ class EventForm extends React.Component {
             onChange={this.nameChange}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className=''>
           <Label for="exampleDate">Event Date:</Label>
           <Input
             type="date"
@@ -95,7 +96,7 @@ class EventForm extends React.Component {
             onChange={this.dateChange}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className=''>
           <Label for="exampleLocation">Event Location:</Label>
           <Input
             type="location"
@@ -106,7 +107,7 @@ class EventForm extends React.Component {
             onChange={this.locationChange}
           />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button className='btn btn-dark'>Submit</Button>
       </Form>
     );
   }

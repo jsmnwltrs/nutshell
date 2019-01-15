@@ -83,10 +83,9 @@ class Events extends React.Component {
       />
     ));
     return (
-      <div className='events col'>
-        <h2>Events</h2>
+      <div className='events col d-flex justify-content-center'>
         <EventForm onSubmit={this.formSubmitEvent} isEditing={isEditing} editId={editId}/>
-        <div>{eventItemComponents}</div>
+        <div className='col-6 mt-5'>{eventItemComponents}</div>
       </div>
     );
   }
