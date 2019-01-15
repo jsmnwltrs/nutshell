@@ -9,6 +9,7 @@ import {
 import './EventForm.scss';
 import PropTypes from 'prop-types';
 import authRequests from '../../Helpers/data/authRequests';
+import eventRequests from '../../Helpers/data/eventRequests';
 
 const defaultEvent = {
   uid: '',
@@ -20,6 +21,8 @@ const defaultEvent = {
 class EventForm extends React.Component {
   static propTypes = {
     onSubmit: PropTypes.func,
+    isEditing: PropTypes.bool,
+    editId: PropTypes.string,
   }
 
   state = {
@@ -53,6 +56,17 @@ class EventForm extends React.Component {
     myEvent.uid = authRequests.getCurrentUid();
     onSubmit(myEvent);
     this.setState({ newEvent: defaultEvent });
+  }
+
+  componentDidUpdate(prevProps) {
+    const { isEditing, editId } = this.props;
+    if (prevProps !== this.props && isEditing) {
+      eventRequests.getSingleEvent(editId)
+        .then((event) => {
+          this.setState({ newEvent: event.data });
+        })
+        .catch(error => console.error('error on getSingleEvent', error));
+    }
   }
 
   render() {
