@@ -58,7 +58,7 @@ class Events extends React.Component {
       <EventItem
         event={event}
         key={event.id}
-        deleteSingleEvent={this.deleteEvent}s
+        deleteSingleEvent={this.deleteEvent}
       />
     ));
     return (
